@@ -51,10 +51,21 @@ a clean `_site/` containing only the served files — `design/`, `tests/`, and
 dev configs never reach production.
 
 Custom domain: `CNAME` contains `theathleticstandard.com`. The domain
-currently points at the old Carrd site — to cut over, update DNS to GitHub
-Pages (apex A/AAAA records or `www` CNAME) and verify the domain in repo
-settings. Every absolute URL (canonical, OG, sitemap, robots) already uses
-`https://theathleticstandard.com/`.
+currently points at the old Carrd site — to cut over:
+
+1. Update DNS to GitHub Pages (apex A records 185.199.108.153 / .109 / .110
+   / .111, or `www` CNAME to `grndlvl.github.io`).
+2. Set the custom domain: `gh api -X PUT repos/grndlvl/the-athletic-standard/pages -f cname=theathleticstandard.com`
+   (for Actions-based deploys GitHub ignores the repo's `CNAME` file).
+3. **Flip the share URLs back**: `og:image`, `twitter:image`, and `og:url` in
+   `index.html` temporarily point at `grndlvl.github.io/the-athletic-standard/`
+   so Facebook/Twitter previews work pre-cutover (the real domain 404s the
+   image and FB fell back to the transparent logo). After DNS cutover, change
+   all three back to `https://theathleticstandard.com/…`.
+4. Re-scrape in Facebook's Sharing Debugger (developers.facebook.com/tools/debug)
+   so FB drops its cached preview.
+
+Canonical, sitemap, and robots URLs already use `https://theathleticstandard.com/`.
 
 ## Brand & design notes
 
