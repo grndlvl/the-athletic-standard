@@ -1,0 +1,5 @@
+node_modules/
+img/
+design/
+package-lock.json
+test-results/

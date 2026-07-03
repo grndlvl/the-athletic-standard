@@ -1,0 +1,28 @@
+{
+  "name": "the-athletic-standard-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dev tooling for theathleticstandard.com — the shipped site is static and dependency-free.",
+  "scripts": {
+    "serve": "http-server -p 4173 -c-1 --silent .",
+    "lint": "npm run lint:html && npm run lint:css && npm run format:check",
+    "lint:html": "html-validate index.html",
+    "lint:css": "stylelint styles.css",
+    "format:check": "prettier --check \"*.{css,js,json,md}\" \"tests/**/*.js\"",
+    "format": "prettier --write \"*.{css,js,json,md}\" \"tests/**/*.js\"",
+    "a11y": "npm run a11y:axe && npm run a11y:pa11y",
+    "a11y:axe": "playwright test",
+    "a11y:pa11y": "start-server-and-test serve http://localhost:4173 \"pa11y-ci --config .pa11yci.json\""
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "@playwright/test": "^1.53.0",
+    "html-validate": "^9.5.0",
+    "http-server": "^14.1.1",
+    "pa11y-ci": "^3.1.0",
+    "prettier": "^3.5.0",
+    "start-server-and-test": "^2.0.10",
+    "stylelint": "^16.19.0",
+    "stylelint-config-standard": "^38.0.0"
+  }
+}
