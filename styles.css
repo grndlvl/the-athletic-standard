@@ -580,6 +580,11 @@ a:hover {
   object-position: top;
 }
 
+/* Brennan's photo has a dark pavilion beam across the top — keep her centered */
+.team-card img[src*='brennan'] {
+  object-position: 50% 35%;
+}
+
 .team-card h3 {
   margin: 1.25rem 1.5rem 0;
   font-size: 1.15rem;
