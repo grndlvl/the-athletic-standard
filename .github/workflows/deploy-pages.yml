@@ -48,6 +48,11 @@ jobs:
           mkdir _site
           cp -r index.html styles.css script.js img robots.txt llms.txt sitemap.xml CNAME _site/
           touch _site/.nojekyll
+      # Cache-bust CSS/JS: stamp the ?v= query with the deployed commit SHA.
+      - name: Version static assets
+        run: |
+          sed -i "s/styles\.css?v=dev/styles.css?v=${GITHUB_SHA::7}/; s/script\.js?v=dev/script.js?v=${GITHUB_SHA::7}/" _site/index.html
+          grep -o 'styles\.css?v=[a-f0-9]*' _site/index.html
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
