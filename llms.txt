@@ -1,9 +1,9 @@
 # The Athletic Standard
 
 > Sports massage and athletic rehabilitation studio in Augusta, Georgia.
-> Personalized, educated massage therapy from licensed therapists with
-> kinesiology and exercise-science backgrounds — for every athletic
-> background, by appointment only.
+> Bodywork to a higher standard: massage therapy from licensed therapists
+> with kinesiology and exercise-science degrees, built around each athlete's
+> sport, training load, and movement. By appointment only.
 
 ## About
 The Athletic Standard specializes in sports massage and athletic
