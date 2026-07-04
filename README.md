@@ -69,13 +69,18 @@ Canonical, sitemap, and robots URLs already use `https://theathleticstandard.com
 
 ## Brand & design notes
 
-- **Palette** (in `styles.css` `:root`): near-black `#0A0B0D`, off-white
-  `#F4F6F8`, signature cyan `#00F0FF` — sampled from the existing site and
-  wordmark. Dark theme throughout; cyan is used on dark only (contrast-safe).
+- **Palette** (in `styles.css` `:root`): light "performance clinic" theme —
+  pale `#F4F7F8` body with near-black `#0A0B0D` bookends (header, hero,
+  marquee, testimonials band, footer). Signature cyan `#00F0FF` lives on the
+  dark bands only; `--brand-deep` teal `#006673` is the contrast-safe accent
+  on light surfaces. Colors sampled from the brand's own wordmark/site. The
+  light body was a deliberate choice to differentiate from the sibling
+  `backyard-bullies` site, which is all-dark with a cyan accent.
 - **Type**: [Sora](https://fonts.google.com/specimen/Sora) (Google Fonts) —
   the brand font on the existing site. 800 uppercase for display, 300 body.
 - **Signature moves**: stacked white wordmark hero on black; scrolling sports
-  marquee (paused under `prefers-reduced-motion`); cyan-edged service cards.
+  marquee (paused under `prefers-reduced-motion`); white cards with soft
+  shadows; one dramatic dark reviews band mid-page.
 - **Assets** (`design/` holds originals): logo, team photos, and gallery
   photos harvested from theathleticstandard.com (the business's own
   published assets). OG image composed from the wordmark + Sora.

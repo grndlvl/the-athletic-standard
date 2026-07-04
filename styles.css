@@ -1,19 +1,30 @@
 /* ==========================================================================
    The Athletic Standard — Sports Massage & Athletic Rehabilitation
-   Dark performance theme. Palette lives here; retune the site from :root.
+   Light "performance clinic" theme with black bookends (hero, marquee,
+   testimonials, footer). Palette lives here; retune the site from :root.
+   Cyan (--brand) is reserved for dark bands; --brand-deep is the
+   contrast-safe teal for light surfaces.
    ========================================================================== */
 
 :root {
-  --ink: #0a0b0d; /* page background */
-  --ink-2: #12151a; /* alternating band */
-  --ink-3: #1c2129; /* card surface */
-  --line: #2a303a; /* hairline borders */
-  --paper: #f4f6f8; /* primary text on dark */
-  --muted: #a7b0ba; /* secondary text on dark */
-  --brand: #00f0ff; /* signature cyan */
+  --night: #0a0b0d; /* dark band background */
+  --night-2: #12151a; /* dark band alt surface */
+  --night-card: #1c2129; /* cards on dark */
+  --night-line: #2a303a; /* hairlines on dark */
+  --paper: #f4f7f8; /* page background */
+  --band: #e9eef0; /* alternating section background */
+  --card: #fff; /* cards on light */
+  --line: #d9e1e5; /* hairlines on light */
+  --ink: #101418; /* text on light */
+  --muted: #4e5a64; /* secondary text on light */
+  --paper-text: #f4f6f8; /* text on dark */
+  --muted-dark: #a7b0ba; /* secondary text on dark */
+  --brand: #00f0ff; /* signature cyan — dark bands only */
+  --brand-deep: #006673; /* contrast-safe teal for light surfaces */
   --brand-soft: rgb(0 240 255 / 12%);
   --font: 'Sora', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --radius: 10px;
+  --shadow: 0 1px 2px rgb(16 20 24 / 6%), 0 8px 24px rgb(16 20 24 / 7%);
   --container: 68rem;
 }
 
@@ -30,8 +41,8 @@ html {
 
 body {
   margin: 0;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--paper);
+  color: var(--ink);
   font-family: var(--font);
   font-weight: 300;
   line-height: 1.65;
@@ -73,7 +84,7 @@ img {
   z-index: 100;
   padding: 0.75rem 1.25rem;
   background: var(--brand);
-  color: var(--ink);
+  color: var(--night);
   font-weight: 600;
   text-decoration: none;
   border-radius: 0 0 var(--radius) var(--radius);
@@ -84,27 +95,35 @@ img {
   top: 0;
 }
 
-/* Focus visibility — bright ring that survives the dark theme */
+/* Focus visibility — teal on light surfaces; dark bands override to cyan */
 a:focus-visible,
 button:focus-visible,
 iframe:focus-visible {
-  outline: 3px solid var(--brand);
+  outline: 3px solid var(--brand-deep);
   outline-offset: 3px;
   border-radius: 2px;
 }
 
+.site-header a:focus-visible,
+.site-header button:focus-visible,
+.hero a:focus-visible,
+.section-dark a:focus-visible,
+.site-footer a:focus-visible {
+  outline-color: var(--brand);
+}
+
 a {
-  color: var(--brand);
+  color: var(--brand-deep);
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
 
 a:hover {
-  color: var(--paper);
+  color: var(--ink);
 }
 
 /* --------------------------------------------------------------------------
-   Header / nav
+   Header / nav (dark)
    -------------------------------------------------------------------------- */
 
 .site-header {
@@ -113,7 +132,7 @@ a:hover {
   z-index: 50;
   background: rgb(10 11 13 / 92%);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--night-line);
 }
 
 .nav {
@@ -129,7 +148,7 @@ a:hover {
 .nav-brand {
   display: flex;
   flex-direction: column;
-  color: var(--paper);
+  color: var(--paper-text);
   text-decoration: none;
   font-weight: 800;
   font-size: 0.72rem;
@@ -151,7 +170,7 @@ a:hover {
   height: 44px;
   padding: 10px;
   background: none;
-  border: 1px solid var(--line);
+  border: 1px solid var(--night-line);
   border-radius: var(--radius);
   cursor: pointer;
 }
@@ -160,7 +179,7 @@ a:hover {
   display: block;
   height: 2px;
   width: 100%;
-  background: var(--paper);
+  background: var(--paper-text);
   transition:
     transform 0.2s ease,
     opacity 0.2s ease;
@@ -188,7 +207,7 @@ a:hover {
 }
 
 .nav-menu a {
-  color: var(--paper);
+  color: var(--paper-text);
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 400;
@@ -210,7 +229,7 @@ a:hover {
 
 .nav-cta:hover {
   background: var(--brand);
-  color: var(--ink) !important;
+  color: var(--night) !important;
 }
 
 @media (width <= 47.9rem) {
@@ -227,8 +246,8 @@ a:hover {
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    background: var(--ink-2);
-    border-bottom: 1px solid var(--line);
+    background: var(--night-2);
+    border-bottom: 1px solid var(--night-line);
     padding: 0.5rem 0;
   }
 
@@ -248,23 +267,28 @@ a:hover {
 }
 
 /* --------------------------------------------------------------------------
-   Hero
+   Hero (dark, full-bleed)
    -------------------------------------------------------------------------- */
 
 .hero {
+  background: var(--night);
+  color: var(--paper-text);
   padding: clamp(4rem, 10vw, 7.5rem) 1.25rem clamp(3rem, 8vw, 6rem);
-  max-width: var(--container);
-  margin-inline: auto;
   text-align: center;
 }
 
 .kicker {
   margin: 0 0 1.25rem;
-  color: var(--brand);
+  color: var(--brand-deep);
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.28em;
   text-transform: uppercase;
+}
+
+.hero .kicker,
+.section-dark .kicker {
+  color: var(--brand);
 }
 
 .hero-logo {
@@ -291,7 +315,7 @@ a:hover {
 .hero-sub {
   margin: 0 auto;
   max-width: 34rem;
-  color: var(--muted);
+  color: var(--muted-dark);
 }
 
 .hero-actions {
@@ -303,7 +327,7 @@ a:hover {
 }
 
 /* --------------------------------------------------------------------------
-   Buttons
+   Buttons — teal on light; cyan inside dark bands
    -------------------------------------------------------------------------- */
 
 .btn {
@@ -321,35 +345,61 @@ a:hover {
 }
 
 .btn-primary {
-  background: var(--brand);
-  color: var(--ink);
-  border: 1px solid var(--brand);
+  background: var(--brand-deep);
+  color: #fff;
+  border: 1px solid var(--brand-deep);
 }
 
 .btn-primary:hover {
-  background: var(--paper);
-  border-color: var(--paper);
-  color: var(--ink);
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
 }
 
 .btn-ghost {
-  border: 1px solid var(--line);
-  color: var(--paper);
+  border: 1px solid var(--muted);
+  color: var(--ink);
 }
 
 .btn-ghost:hover {
+  border-color: var(--brand-deep);
+  color: var(--brand-deep);
+}
+
+.hero .btn-primary,
+.section-dark .btn-primary {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--night);
+}
+
+.hero .btn-primary:hover,
+.section-dark .btn-primary:hover {
+  background: var(--paper-text);
+  border-color: var(--paper-text);
+  color: var(--night);
+}
+
+.hero .btn-ghost,
+.section-dark .btn-ghost {
+  border-color: var(--night-line);
+  color: var(--paper-text);
+}
+
+.hero .btn-ghost:hover,
+.section-dark .btn-ghost:hover {
   border-color: var(--brand);
   color: var(--brand);
 }
 
 /* --------------------------------------------------------------------------
-   Marquee
+   Marquee (dark)
    -------------------------------------------------------------------------- */
 
 .marquee {
   overflow: hidden;
-  border-block: 1px solid var(--line);
-  background: var(--ink-2);
+  border-block: 1px solid var(--night-line);
+  background: var(--night-2);
   padding: 0.9rem 0;
 }
 
@@ -362,7 +412,7 @@ a:hover {
   font-weight: 600;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--muted-dark);
   white-space: nowrap;
 }
 
@@ -389,8 +439,14 @@ a:hover {
 }
 
 .section-alt {
-  background: var(--ink-2);
+  background: var(--band);
   border-block: 1px solid var(--line);
+}
+
+.section-dark {
+  background: var(--night);
+  border-block: 0;
+  color: var(--paper-text);
 }
 
 .section h2 {
@@ -441,17 +497,18 @@ a:hover {
 
 .about-points li {
   padding: 1.25rem 1.5rem;
-  background: var(--ink-2);
+  background: var(--card);
   border: 1px solid var(--line);
-  border-left: 3px solid var(--brand);
+  border-left: 3px solid var(--brand-deep);
   border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .about-points h3 {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-size: 0.9rem;
-  color: var(--brand);
+  color: var(--brand-deep);
 }
 
 .about-points p {
@@ -480,9 +537,10 @@ a:hover {
 .service-card {
   position: relative;
   padding: 1.75rem 1.5rem;
-  background: var(--ink-3);
+  background: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius);
+  box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
 }
@@ -494,8 +552,8 @@ a:hover {
 }
 
 .service-card-feature {
-  border-color: var(--brand);
-  background: linear-gradient(180deg, var(--brand-soft), transparent 60%), var(--ink-3);
+  border-color: var(--brand-deep);
+  border-top: 3px solid var(--brand-deep);
 }
 
 .service-duration {
@@ -510,7 +568,7 @@ a:hover {
   margin: 0.5rem 0 0.75rem;
   font-size: 2rem;
   font-weight: 800;
-  color: var(--brand);
+  color: var(--brand-deep);
 }
 
 .service-card-note {
@@ -524,7 +582,7 @@ a:hover {
 }
 
 .service-card-note strong {
-  color: var(--paper);
+  color: var(--ink);
 }
 
 @media (width <= 60rem) {
@@ -560,9 +618,10 @@ a:hover {
 }
 
 .team-card {
-  background: var(--ink-3);
+  background: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius);
+  box-shadow: var(--shadow);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -595,7 +654,7 @@ a:hover {
 
 .team-creds {
   margin: 0.15rem 1.5rem 0.5rem;
-  color: var(--brand);
+  color: var(--brand-deep);
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -616,51 +675,16 @@ a:hover {
   }
 }
 
-/* Gallery */
-
-.gallery-grid {
-  list-style: none;
-  margin: 2rem 0 0;
-  padding: 0;
-  display: grid;
-  gap: 0.75rem;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.gallery-grid li {
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid var(--line);
-  aspect-ratio: 4 / 5;
-}
-
-.gallery-grid img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.35s ease;
-}
-
-.gallery-grid li:hover img {
-  transform: scale(1.04);
-}
-
-@media (width <= 60rem) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Testimonials */
+/* Testimonials (dark band) */
 
 .rating-strip {
   margin: 0 0 2rem;
-  color: var(--muted);
+  color: var(--muted-dark);
   font-size: 1rem;
 }
 
 .rating-strip strong {
-  color: var(--paper);
+  color: var(--paper-text);
   font-weight: 800;
   font-size: 1.15rem;
 }
@@ -681,8 +705,8 @@ a:hover {
 .testimonial-card {
   margin: 0;
   padding: 2rem;
-  background: var(--ink-3);
-  border: 1px solid var(--line);
+  background: var(--night-card);
+  border: 1px solid var(--night-line);
   border-left: 3px solid var(--brand);
   border-radius: var(--radius);
   display: flex;
@@ -714,7 +738,7 @@ a:hover {
 
 .testimonial-card figcaption {
   margin-top: 1.5rem;
-  color: var(--muted);
+  color: var(--muted-dark);
   font-size: 0.85rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -723,6 +747,42 @@ a:hover {
 @media (width <= 47.9rem) {
   .testimonial-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Gallery */
+
+.gallery-grid {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.gallery-grid li {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  aspect-ratio: 4 / 5;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.gallery-grid li:hover img {
+  transform: scale(1.04);
+}
+
+@media (width <= 60rem) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -741,21 +801,23 @@ a:hover {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: var(--ink-3);
+  background: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius);
+  box-shadow: var(--shadow);
   overflow: hidden;
   text-decoration: none;
   transition: border-color 0.2s ease;
 }
 
 .shop-card a:hover {
-  border-color: var(--brand);
+  border-color: var(--brand-deep);
 }
 
 .shop-card-media {
   display: block;
   background: #fff;
+  border-bottom: 1px solid var(--line);
   aspect-ratio: 1;
 }
 
@@ -768,7 +830,7 @@ a:hover {
 .shop-card-name {
   display: block;
   padding: 1rem 1.25rem 0;
-  color: var(--paper);
+  color: var(--ink);
   font-weight: 600;
   font-size: 0.95rem;
 }
@@ -776,7 +838,7 @@ a:hover {
 .shop-card-price {
   display: block;
   padding: 0.15rem 1.25rem 1.25rem;
-  color: var(--brand);
+  color: var(--brand-deep);
   font-weight: 800;
   font-size: 1.15rem;
 }
@@ -806,16 +868,17 @@ a:hover {
 
 .hours-card {
   padding: 1.75rem;
-  background: var(--ink-3);
+  background: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .hours-card h3 {
   text-transform: uppercase;
   letter-spacing: 0.14em;
   font-size: 0.9rem;
-  color: var(--brand);
+  color: var(--brand-deep);
   margin-bottom: 1rem;
 }
 
@@ -877,6 +940,7 @@ a:hover {
 .visit-map {
   border: 1px solid var(--line);
   border-radius: var(--radius);
+  box-shadow: var(--shadow);
   overflow: hidden;
 }
 
@@ -894,12 +958,13 @@ a:hover {
 }
 
 /* --------------------------------------------------------------------------
-   Footer
+   Footer (dark)
    -------------------------------------------------------------------------- */
 
 .site-footer {
-  border-top: 1px solid var(--line);
-  background: var(--ink-2);
+  border-top: 1px solid var(--night-line);
+  background: var(--night);
+  color: var(--paper-text);
   padding: 3.5rem 0 2rem;
 }
 
@@ -914,7 +979,7 @@ a:hover {
 }
 
 .footer-brand p {
-  color: var(--muted);
+  color: var(--muted-dark);
   font-size: 0.9rem;
   margin-top: 1.25rem;
 }
@@ -930,7 +995,7 @@ a:hover {
 
 .footer-nav a,
 .footer-contact a {
-  color: var(--muted);
+  color: var(--muted-dark);
   text-decoration: none;
   font-size: 0.95rem;
 }
@@ -943,12 +1008,12 @@ a:hover {
 .footer-legal {
   margin-top: 2.5rem;
   padding-top: 1.5rem;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--night-line);
 }
 
 .footer-legal p {
   margin: 0;
-  color: var(--muted);
+  color: var(--muted-dark);
   font-size: 0.85rem;
 }
 
