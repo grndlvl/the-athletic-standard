@@ -46,7 +46,9 @@ jobs:
       - name: Assemble site
         run: |
           mkdir _site
-          cp -r index.html styles.css script.js img robots.txt llms.txt sitemap.xml CNAME _site/
+          # CNAME intentionally excluded: workflow builds take the custom domain
+          # from repo Pages settings, and a stray CNAME can fail the deployment.
+          cp -r index.html styles.css script.js img robots.txt llms.txt sitemap.xml _site/
           touch _site/.nojekyll
       # Cache-bust CSS/JS: stamp the ?v= query with the deployed commit SHA.
       - name: Version static assets
