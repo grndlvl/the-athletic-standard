@@ -67,16 +67,18 @@
     });
   }
 
-  /* Header: transparent over the intro, solid bar with logo once scrolled */
+  /* Header: transparent over the hero image, solid bar with logo as soon
+     as the image panel scrolls out (on mobile the panel leaves well before
+     the rest of the intro, and the toggle needs the dark bar behind it). */
   var header = document.querySelector('.site-header');
-  var intro = document.getElementById('top');
-  if (header && intro && 'IntersectionObserver' in window) {
+  var sentinel = document.querySelector('.intro-brand') || document.getElementById('top');
+  if (header && sentinel && 'IntersectionObserver' in window) {
     new IntersectionObserver(
       function (entries) {
         header.classList.toggle('is-scrolled', !entries[0].isIntersecting);
       },
-      { rootMargin: '-80px 0px 0px 0px' },
-    ).observe(intro);
+      { rootMargin: '-60px 0px 0px 0px' },
+    ).observe(sentinel);
   } else if (header) {
     header.classList.add('is-scrolled');
   }
