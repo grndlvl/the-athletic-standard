@@ -378,13 +378,12 @@ a:hover {
    -------------------------------------------------------------------------- */
 
 .section {
-  padding: clamp(3.5rem, 8vw, 6.5rem) 0 0;
+  padding: clamp(3.5rem, 8vw, 6.5rem) 0;
 }
 
 /* Alternate section backgrounds: midnight teal / near-black rhythm */
 main > .section:nth-of-type(even) {
   background: var(--band);
-  padding-bottom: clamp(3.5rem, 8vw, 6.5rem);
 }
 
 .section-head {
@@ -1008,7 +1007,6 @@ main > .section:nth-of-type(even) {
    -------------------------------------------------------------------------- */
 
 .book {
-  margin-top: clamp(3.5rem, 8vw, 6.5rem);
   padding: clamp(4rem, 9vw, 7rem) 0 clamp(3rem, 7vw, 5rem);
   background: var(--ink-soft);
   border-top: 1px solid var(--line);
