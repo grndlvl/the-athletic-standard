@@ -17,9 +17,11 @@
   --muted: #555f64; /* secondary text (6.6:1 on paper) */
   --line: #dcdfe0; /* hairlines on paper */
   --line-dark: #313a3e; /* hairlines on dark panels */
-  --muted-dark: #a9b1b5; /* secondary text on dark */
+  --muted-dark: #c9d3d5; /* secondary text on dark/teal panels (8:1+) */
   --brand: #00f0ff; /* signature cyan — graphic accent + button fill */
   --brand-deep: #006673; /* contrast-safe teal for text accents on paper */
+  --teal: #0c3a42; /* dark teal panel — hero copy + alternating chapters */
+  --teal-line: rgb(255 255 255 / 25%); /* hairlines on teal panels */
   --display: 'Raleway', 'Helvetica Neue', sans-serif;
   --body: 'Source Sans 3', 'Helvetica Neue', sans-serif;
   --container: 78rem;
@@ -400,6 +402,8 @@ a:hover {
 }
 
 .intro-copy {
+  background: var(--teal);
+  color: var(--paper);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -418,14 +422,38 @@ a:hover {
 
 .intro-copy h1 em {
   font-style: normal;
-  color: var(--brand-deep);
+  color: var(--brand);
+}
+
+.intro-copy .btn {
+  color: var(--paper);
+  box-shadow: inset 0 0 0 2px var(--teal-line);
+}
+
+.intro-copy .btn:hover {
+  color: var(--brand);
+  box-shadow: inset 0 0 0 2px var(--brand);
+}
+
+.intro-copy .btn-primary {
+  color: var(--ink);
+  box-shadow: none;
+}
+
+.intro-copy .btn-primary:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.intro-copy a:focus-visible {
+  outline-color: var(--brand);
 }
 
 .intro-sub {
   margin: 0;
   max-width: 34rem;
   font-size: 1.2rem;
-  color: var(--muted);
+  color: var(--muted-dark);
 }
 
 .intro-actions {
@@ -441,7 +469,7 @@ a:hover {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--brand-deep);
+  color: var(--brand);
 }
 
 @media (width <= 60rem) {
@@ -460,9 +488,8 @@ a:hover {
    -------------------------------------------------------------------------- */
 
 .chapter {
-  max-width: var(--container);
-  margin-inline: auto;
-  padding: clamp(3.5rem, 8vw, 6.5rem) clamp(1.25rem, 4vw, 3rem);
+  padding: clamp(3.5rem, 8vw, 6.5rem)
+    max(clamp(1.25rem, 4vw, 3rem), calc((100% - var(--container)) / 2 + clamp(1.25rem, 4vw, 3rem)));
   display: grid;
   grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
   gap: clamp(1.5rem, 4vw, 4rem);
@@ -471,6 +498,98 @@ a:hover {
 
 .chapter + .chapter {
   border-top: 1px solid var(--line);
+}
+
+/* Alternating dark-teal chapters (Method, Therapists, Studio, Shop) */
+.chapter-teal {
+  background: var(--teal);
+  color: var(--paper);
+  border-top: 0 !important;
+}
+
+.chapter-teal + .chapter {
+  border-top: 0;
+}
+
+.chapter-teal .chapter-no,
+.chapter-teal .step-no,
+.chapter-teal .team-creds,
+.chapter-teal .studio-note,
+.chapter-teal .shop-price,
+.chapter-teal .price-row-feature .price-name h3::after {
+  color: var(--brand);
+}
+
+.chapter-teal .chapter-note,
+.chapter-teal .method-steps p,
+.chapter-teal .price-name p,
+.chapter-teal .price-duration,
+.chapter-teal .price-footnote,
+.chapter-teal .team-bio > p:last-child,
+.chapter-teal .hours-row dt {
+  color: var(--muted-dark);
+}
+
+.chapter-teal .method-steps li,
+.chapter-teal .price-row,
+.chapter-teal .hours-row,
+.chapter-teal .shop-line {
+  border-color: var(--teal-line);
+}
+
+.chapter-teal .shop-item a,
+.chapter-teal .studio-map {
+  border-color: var(--teal-line);
+}
+
+.chapter-teal .shop-item a:hover {
+  border-color: var(--brand);
+}
+
+.chapter-teal .shop-name {
+  color: var(--paper);
+}
+
+.chapter-teal .team-row picture {
+  background: rgb(255 255 255 / 10%);
+}
+
+.chapter-teal a {
+  color: var(--brand);
+}
+
+.chapter-teal a:hover {
+  color: var(--paper);
+}
+
+.chapter-teal a:focus-visible {
+  outline-color: var(--brand);
+}
+
+.chapter-teal .btn {
+  color: var(--paper);
+  box-shadow: inset 0 0 0 2px var(--teal-line);
+}
+
+.chapter-teal .btn:hover {
+  color: var(--brand);
+  box-shadow: inset 0 0 0 2px var(--brand);
+}
+
+.chapter-teal .btn-primary {
+  background: var(--brand);
+  box-shadow: none;
+  color: var(--ink);
+}
+
+.chapter-teal .btn-primary:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.chapter-teal ::selection {
+  background: var(--paper);
+  color: var(--teal);
 }
 
 .chapter-head {
