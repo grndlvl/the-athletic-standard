@@ -3,18 +3,20 @@
    "Training ledger" theme, on-brand monochrome: near-black paper, white ink,
    geometric all-caps display (Jost, echoing the logo's Futura-style caps)
    with mono data labels (IBM Plex Mono). Editorial spec-sheet layout —
-   numbered sections, hairline rules, no cards, no pills. Emphasis comes
-   from weight, outline type, and photography, not color.
-   Palette lives here; retune the site from :root.
+   numbered sections, hairline rules, no cards, no pills. "Midnight teal":
+   the canvas itself carries the brand color at low luminance, and exactly
+   one element on the page — the hero's outline word — shows the cyan at
+   full strength. Palette lives here; retune the site from :root.
    ========================================================================== */
 
 :root {
-  --ink: #0e0f11; /* page background */
-  --ink-soft: #17181b; /* recessed surfaces (media wells) */
-  --paper: #f2f2f0; /* primary text */
-  --muted: #a8aaad; /* secondary text (7.6:1 on ink) */
-  --line: #2c2e33; /* hairlines */
-  --line-strong: #55575c; /* emphasized rules */
+  --ink: #0c1e22; /* page background — midnight teal */
+  --ink-soft: #081517; /* recessed surfaces (media wells), deeper still */
+  --brand: #00f0ff; /* full-strength cyan — hero word ONLY */
+  --paper: #f2f2f0; /* primary text (15.2:1 on ink) */
+  --muted: #a8aaad; /* secondary text (7.3:1 on ink) */
+  --line: #24393e; /* hairlines, teal-cast */
+  --line-strong: #476066; /* emphasized rules */
   --sans: 'Jost', 'Futura', 'Century Gothic', system-ui, sans-serif;
   --mono: 'IBM Plex Mono', 'SFMono-Regular', consolas, monospace;
   --container: 74rem;
@@ -298,11 +300,10 @@ a:hover {
   max-width: 18ch;
 }
 
-/* Outlined caps echo the logo's letterforms; gray fill stays contrast-safe */
+/* The one full-strength cyan element on the page (12.1:1 on midnight teal) */
 .hero h1 em {
   font-style: normal;
-  color: var(--muted);
-  -webkit-text-stroke: 2px var(--paper);
+  color: var(--brand);
 }
 
 .hero-row {
