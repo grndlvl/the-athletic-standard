@@ -67,6 +67,20 @@
     });
   }
 
+  /* Header: transparent over the intro, solid bar with logo once scrolled */
+  var header = document.querySelector('.site-header');
+  var intro = document.getElementById('top');
+  if (header && intro && 'IntersectionObserver' in window) {
+    new IntersectionObserver(
+      function (entries) {
+        header.classList.toggle('is-scrolled', !entries[0].isIntersecting);
+      },
+      { rootMargin: '-80px 0px 0px 0px' },
+    ).observe(intro);
+  } else if (header) {
+    header.classList.add('is-scrolled');
+  }
+
   /* Footer year */
   var year = document.getElementById('year');
   if (year) {

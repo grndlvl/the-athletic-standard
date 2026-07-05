@@ -185,11 +185,20 @@ a:hover {
    Header / nav — dark brand bar
    -------------------------------------------------------------------------- */
 
+/* Transparent over the intro; solid bar with logo once scrolled */
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 50;
+  background: transparent;
+  transition: background 0.25s ease;
+}
+
+.site-header.is-scrolled {
   background: var(--ink);
+  box-shadow: 0 1px 0 rgb(0 0 0 / 20%);
 }
 
 .nav {
@@ -203,8 +212,19 @@ a:hover {
   gap: 1rem;
 }
 
+/* Logo hidden over the intro (the intro panel carries the brand) */
 .nav-brand {
   display: block;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.site-header.is-scrolled .nav-brand {
+  opacity: 1;
+  visibility: visible;
 }
 
 .nav-brand img {
@@ -252,11 +272,25 @@ a:hover {
   gap: 1.6rem;
   list-style: none;
   margin: 0;
+  padding: 0.4rem 0.4rem 0.4rem 1.4rem;
+  border-radius: 0.325rem;
+  background: rgb(255 255 255 / 85%);
+  backdrop-filter: blur(6px);
+  transition:
+    background 0.25s ease,
+    padding 0.25s ease;
+}
+
+.site-header.is-scrolled .nav-menu {
+  background: transparent;
+  backdrop-filter: none;
   padding: 0;
 }
 
+/* Over the intro the links sit on the white right panel — ink text;
+   the scrolled solid bar flips them to white */
 .nav-menu a {
-  color: var(--paper);
+  color: var(--ink);
   text-decoration: none;
   font-family: var(--display);
   font-size: 0.78rem;
@@ -265,7 +299,16 @@ a:hover {
   text-transform: uppercase;
 }
 
-.nav-menu a:hover {
+.site-header.is-scrolled .nav-menu a {
+  color: var(--paper);
+}
+
+.nav-menu a:hover,
+.site-header.is-scrolled .nav-menu a:hover {
+  color: var(--brand-deep);
+}
+
+.site-header.is-scrolled .nav-menu a:hover {
   color: var(--brand);
 }
 
@@ -304,10 +347,12 @@ a:hover {
     display: flex;
   }
 
+  /* Dropdown panel is always ink — links stay white in both header states */
   .nav-menu li a {
     display: block;
     padding: 0.9rem clamp(1.25rem, 4vw, 3rem);
     border-top: 1px solid var(--line-dark);
+    color: var(--paper);
   }
 
   .nav-cta {
@@ -323,11 +368,14 @@ a:hover {
 .intro {
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  min-height: min(88vh, 52rem);
+  min-height: 100vh;
+  min-height: 100svh;
 }
 
 .intro-brand {
-  background: var(--ink-2);
+  background:
+    linear-gradient(rgb(17 21 23 / 82%), rgb(17 21 23 / 82%)),
+    url('img/gallery-studio-session.jpg') center / cover no-repeat;
   color: var(--paper);
   display: flex;
   flex-direction: column;
@@ -399,11 +447,11 @@ a:hover {
 @media (width <= 60rem) {
   .intro {
     grid-template-columns: 1fr;
-    min-height: 0;
+    grid-template-rows: auto 1fr;
   }
 
   .intro-brand {
-    padding-block: 3rem;
+    padding-block: 5rem 3rem;
   }
 }
 
