@@ -462,7 +462,7 @@ a:hover {
 .chapter {
   max-width: var(--container);
   margin-inline: auto;
-  padding: clamp(3.5rem, 8vw, 6.5rem) clamp(1.25rem, 4vw, 3rem) 0;
+  padding: clamp(3.5rem, 8vw, 6.5rem) clamp(1.25rem, 4vw, 3rem);
   display: grid;
   grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
   gap: clamp(1.5rem, 4vw, 4rem);
@@ -1024,7 +1024,6 @@ a:hover {
    -------------------------------------------------------------------------- */
 
 .book {
-  margin-top: clamp(3.5rem, 8vw, 6.5rem);
   padding: clamp(4rem, 9vw, 7rem) clamp(1.25rem, 4vw, 3rem);
   background: var(--ink);
   color: var(--paper);
