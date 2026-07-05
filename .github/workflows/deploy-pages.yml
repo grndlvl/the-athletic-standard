@@ -40,21 +40,50 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Configure Pages
         uses: actions/configure-pages@v5
-      # Serve only the site files — design/ originals, tests, and dev configs stay out.
+      # Root serves ROOT_ALT; every alt-* branch also deploys under /alt-N/
+      # so all design candidates are viewable side by side.
+      # CNAME intentionally excluded: workflow builds take the custom domain
+      # from repo Pages settings, and a stray CNAME can fail the deployment.
       - name: Assemble site
+        env:
+          ROOT_ALT: alt-4
         run: |
           mkdir _site
-          # CNAME intentionally excluded: workflow builds take the custom domain
-          # from repo Pages settings, and a stray CNAME can fail the deployment.
-          cp -r index.html styles.css script.js img robots.txt llms.txt sitemap.xml _site/
-          touch _site/.nojekyll
-      # Cache-bust CSS/JS: stamp the ?v= query with the deployed commit SHA.
-      - name: Version static assets
-        run: |
+          for alt in alt-1 alt-2 alt-3 alt-4 alt-5; do
+            if ! git rev-parse --verify "origin/$alt" >/dev/null 2>&1; then continue; fi
+            git worktree add "wt-$alt" "origin/$alt"
+            mkdir -p "_site/$alt"
+            for f in index.html styles.css script.js img; do
+              [ -e "wt-$alt/$f" ] && cp -r "wt-$alt/$f" "_site/$alt/"
+            done
+            sha=$(git rev-parse --short "origin/$alt")
+            sed -i "s/styles\.css?v=dev/styles.css?v=$sha/; s/script\.js?v=dev/script.js?v=$sha/" "_site/$alt/index.html"
+            # Previews: keep them out of search indexes
+            sed -i 's|</title>|</title><meta name="robots" content="noindex" />|' "_site/$alt/index.html"
+          done
+          # Root = the current production candidate (indexable, with SEO files)
+          cp -r "wt-$ROOT_ALT"/index.html "wt-$ROOT_ALT"/styles.css "wt-$ROOT_ALT"/script.js "wt-$ROOT_ALT"/img _site/
+          cp "wt-$ROOT_ALT"/robots.txt "wt-$ROOT_ALT"/llms.txt "wt-$ROOT_ALT"/sitemap.xml _site/ 2>/dev/null || true
           sed -i "s/styles\.css?v=dev/styles.css?v=${GITHUB_SHA::7}/; s/script\.js?v=dev/script.js?v=${GITHUB_SHA::7}/" _site/index.html
-          grep -o 'styles\.css?v=[a-f0-9]*' _site/index.html
+          # Hub page listing all alts
+          mkdir -p _site/alts
+          {
+            echo '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" />'
+            echo '<meta name="viewport" content="width=device-width, initial-scale=1" />'
+            echo '<meta name="robots" content="noindex" /><title>The Athletic Standard — design alts</title>'
+            echo '<style>body{background:#0e0f11;color:#f2f2f0;font-family:system-ui,sans-serif;max-width:40rem;margin:4rem auto;padding:0 1.5rem;line-height:1.7}a{color:#8ee7ee}h1{font-size:1.4rem}</style>'
+            echo '</head><body><h1>The Athletic Standard — design alternatives</h1><ul>'
+            for alt in alt-1 alt-2 alt-3 alt-4 alt-5; do
+              [ -d "_site/$alt" ] && echo "<li><a href=\"../$alt/\">$alt</a></li>"
+            done
+            echo '</ul><p><a href="../">Current root (alt-4)</a></p></body></html>'
+          } > _site/alts/index.html
+          touch _site/.nojekyll
+          ls _site
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
