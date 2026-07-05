@@ -53,7 +53,7 @@ jobs:
           ROOT_ALT: alt-4
         run: |
           mkdir _site
-          for alt in alt-1 alt-2 alt-3 alt-4 alt-5; do
+          for alt in alt-1 alt-2 alt-3 alt-4 alt-5 alt-6; do
             if ! git rev-parse --verify "origin/$alt" >/dev/null 2>&1; then continue; fi
             git worktree add "wt-$alt" "origin/$alt"
             mkdir -p "_site/$alt"
@@ -77,7 +77,7 @@ jobs:
             echo '<meta name="robots" content="noindex" /><title>The Athletic Standard — design alts</title>'
             echo '<style>body{background:#0e0f11;color:#f2f2f0;font-family:system-ui,sans-serif;max-width:40rem;margin:4rem auto;padding:0 1.5rem;line-height:1.7}a{color:#8ee7ee}h1{font-size:1.4rem}</style>'
             echo '</head><body><h1>The Athletic Standard — design alternatives</h1><ul>'
-            for alt in alt-1 alt-2 alt-3 alt-4 alt-5; do
+            for alt in alt-1 alt-2 alt-3 alt-4 alt-5 alt-6; do
               [ -d "_site/$alt" ] && echo "<li><a href=\"../$alt/\">$alt</a></li>"
             done
             echo '</ul><p><a href="../">Current root (alt-4)</a></p></body></html>'

@@ -47,7 +47,9 @@
   /* Scroll reveal — skipped entirely for reduced motion */
   var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   if (!prefersReduced.matches && 'IntersectionObserver' in window) {
-    var targets = document.querySelectorAll('.section .container, .hero > *');
+    var targets = document.querySelectorAll(
+      '.section .container, .hero > *, .intro > *, .chapter, .book-inner',
+    );
     var observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {

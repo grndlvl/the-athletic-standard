@@ -8,7 +8,7 @@
       name="description"
       content="Sports massage and athletic rehabilitation in Augusta, GA. Sessions built around your sport, your training load, and how you actually move — text (706) 842-8055."
     />
-    <meta name="theme-color" content="#0c1e22" />
+    <meta name="theme-color" content="#111517" />
     <link rel="canonical" href="https://theathleticstandard.com/" />
 
     <!-- Icons -->
@@ -21,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,600;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;800&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,300&display=swap"
       rel="stylesheet"
     />
 
@@ -155,73 +155,48 @@
           <li><a href="#studio">Studio</a></li>
           <li><a href="#yoga">Yoga</a></li>
           <li><a href="#shop">Shop</a></li>
-          <li><a class="nav-cta" href="sms:+17068428055">Book&nbsp;&rarr;</a></li>
+          <li><a class="nav-cta" href="sms:+17068428055">Book a session</a></li>
         </ul>
       </nav>
     </header>
 
     <main id="main">
-      <!-- Hero -->
-      <section class="hero" id="top" aria-labelledby="hero-heading">
-        <div class="container">
-          <p class="hero-meta">
-            Sports massage &amp; athletic rehabilitation &mdash; Augusta, Georgia &mdash; by
-            appointment only
-          </p>
-          <h1 id="hero-heading">Bodywork to a <em>higher standard</em>.</h1>
-          <div class="hero-row">
-            <p class="hero-sub">
-              Every session starts with how you move &mdash; your sport, your training load, the
-              pattern behind the pain &mdash; and ends with a plan to keep you moving.
-            </p>
-            <div class="hero-actions">
-              <a class="link-cta" href="sms:+17068428055"
-                >Text (706)&nbsp;842-8055 <span aria-hidden="true">&rarr;</span></a
-              >
-              <a class="link-cta link-cta-quiet" href="#pricing"
-                >See pricing <span aria-hidden="true">&darr;</span></a
-              >
-            </div>
-          </div>
+      <!-- Intro — split panel -->
+      <section class="intro" id="top" aria-labelledby="intro-heading">
+        <div class="intro-brand">
+          <picture>
+            <source srcset="img/logo-white.webp" type="image/webp" />
+            <img src="img/logo-white.png" alt="" width="1000" height="550" />
+          </picture>
+          <p class="intro-tag"><span class="accent-line" aria-hidden="true"></span>Sports Massage &amp; Athletic Rehabilitation &mdash; Augusta,&nbsp;Georgia</p>
         </div>
-        <div class="hero-strip" aria-hidden="true">
-          <picture>
-            <source srcset="img/hero-work.webp" type="image/webp" />
-            <img src="img/hero-work.jpg" alt="" width="640" height="640" fetchpriority="high" />
-          </picture>
-          <picture>
-            <source srcset="img/gallery-studio-session.webp" type="image/webp" />
-            <img
-              src="img/gallery-studio-session.jpg"
-              alt=""
-              width="600"
-              height="800"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source srcset="img/gallery-tablework-event.webp" type="image/webp" />
-            <img
-              src="img/gallery-tablework-event.jpg"
-              alt=""
-              width="636"
-              height="800"
-              loading="lazy"
-            />
-          </picture>
+        <div class="intro-copy">
+          <h1 id="intro-heading">Bodywork to a <em>higher standard</em>.</h1>
+          <p class="intro-sub">
+            Every session starts with how you move &mdash; your sport, your training load, the
+            pattern behind the pain &mdash; and ends with a plan to keep you moving.
+          </p>
+          <div class="intro-actions">
+            <a class="btn btn-primary" href="sms:+17068428055">Text (706)&nbsp;842-8055</a>
+            <a class="btn" href="#pricing">See services &amp; pricing</a>
+          </div>
+          <p class="intro-sports">
+            Golf &middot; Baseball &middot; Motorsport &middot; Wrestling &middot; Bodybuilding
+            &middot; Running &middot; every athlete
+          </p>
         </div>
       </section>
 
       <!-- 01 · The work -->
-      <section class="section" id="work" aria-labelledby="work-heading">
-        <div class="container">
-          <header class="section-head">
-            <span class="section-no" aria-hidden="true">01</span>
-            <h2 id="work-heading">The work</h2>
-            <p class="section-note">On the road &amp; in the studio</p>
-          </header>
+      <section class="chapter" id="work" aria-labelledby="work-heading">
+        <header class="chapter-head">
+          <p class="chapter-no" aria-hidden="true">01</p>
+          <h2 id="work-heading">The work</h2>
+          <p class="chapter-note">On the road &amp; in the studio</p>
+        </header>
+        <div class="chapter-body">
           <ul class="work-grid" role="list">
-            <li class="span-3">
+            <li class="span-2">
               <picture>
                 <source srcset="img/gallery-pga-event.webp" type="image/webp" />
                 <img
@@ -233,7 +208,7 @@
                 />
               </picture>
             </li>
-            <li class="span-2">
+            <li>
               <picture>
                 <source srcset="img/gallery-wrestler.webp" type="image/webp" />
                 <img
@@ -245,7 +220,7 @@
                 />
               </picture>
             </li>
-            <li class="span-1">
+            <li>
               <picture>
                 <source srcset="img/gallery-bodybuilder.webp" type="image/webp" />
                 <img
@@ -257,7 +232,7 @@
                 />
               </picture>
             </li>
-            <li class="span-2">
+            <li>
               <picture>
                 <source srcset="img/gallery-motorsport.webp" type="image/webp" />
                 <img
@@ -269,7 +244,7 @@
                 />
               </picture>
             </li>
-            <li class="span-2">
+            <li>
               <picture>
                 <source srcset="img/gallery-baseball.webp" type="image/webp" />
                 <img
@@ -281,7 +256,7 @@
                 />
               </picture>
             </li>
-            <li class="span-2">
+            <li>
               <picture>
                 <source srcset="img/gallery-neckwork.webp" type="image/webp" />
                 <img
@@ -305,52 +280,57 @@
                 />
               </picture>
             </li>
+            <li>
+              <picture>
+                <source srcset="img/gallery-tablework-event.webp" type="image/webp" />
+                <img
+                  src="img/gallery-tablework-event.jpg"
+                  alt="Therapist working on an athlete on a treatment table at an on-site event"
+                  width="636"
+                  height="800"
+                  loading="lazy"
+                />
+              </picture>
+            </li>
           </ul>
-          <p class="section-cta">
-            <a
-              class="link-cta link-cta-quiet"
-              href="https://www.instagram.com/theathleticstandard"
-              rel="noopener"
-              >More on Instagram <span aria-hidden="true">&rarr;</span
-              ><span class="sr-only"> (opens Instagram)</span></a
+          <p class="chapter-cta">
+            <a class="btn" href="https://www.instagram.com/theathleticstandard" rel="noopener"
+              >More on Instagram<span class="sr-only"> (opens Instagram)</span></a
             >
           </p>
         </div>
       </section>
 
       <!-- 02 · The method -->
-      <section class="section" id="method" aria-labelledby="method-heading">
-        <div class="container">
-          <header class="section-head">
-            <span class="section-no" aria-hidden="true">02</span>
-            <h2 id="method-heading">The method</h2>
-            <p class="section-note">Bodywork built on sport science</p>
-          </header>
-          <p class="method-lead">
+      <section class="chapter" id="method" aria-labelledby="method-heading">
+        <header class="chapter-head">
+          <p class="chapter-no" aria-hidden="true">02</p>
+          <h2 id="method-heading">The method</h2>
+          <p class="chapter-note">Bodywork built on sport science</p>
+        </header>
+        <div class="chapter-body">
+          <p class="lead">
             Licensed massage therapists with kinesiology and exercise-science degrees, working with
             tour-level competitors, weekend runners, and everyone between. Not a spa. Not a
             franchise. A studio with a method.
           </p>
           <ul class="method-steps" role="list">
             <li>
-              <span class="step-no" aria-hidden="true">A.</span>
-              <h3>Assess</h3>
+              <h3><span class="step-no" aria-hidden="true">A.</span> Assess</h3>
               <p>
                 We watch how you move before we touch the table. Sport, training block, injury
                 history &mdash; the session is built from that, not from a script.
               </p>
             </li>
             <li>
-              <span class="step-no" aria-hidden="true">B.</span>
-              <h3>Treat</h3>
+              <h3><span class="step-no" aria-hidden="true">B.</span> Treat</h3>
               <p>
                 Targeted sports massage and athletic rehabilitation &mdash; deep, specific work on
                 the tissue and the pattern that keeps loading it.
               </p>
             </li>
             <li>
-              <span class="step-no" aria-hidden="true">C.</span>
-              <h3>Coach</h3>
+              <h3><span class="step-no" aria-hidden="true">C.</span> Coach</h3>
               <p>
                 You leave with homework: form corrections, mobility work, and a plan for the next
                 training block. The goal is fewer visits, not more.
@@ -361,13 +341,13 @@
       </section>
 
       <!-- 03 · Pricing -->
-      <section class="section" id="pricing" aria-labelledby="pricing-heading">
-        <div class="container">
-          <header class="section-head">
-            <span class="section-no" aria-hidden="true">03</span>
-            <h2 id="pricing-heading">Pricing</h2>
-            <p class="section-note">Text to schedule</p>
-          </header>
+      <section class="chapter" id="pricing" aria-labelledby="pricing-heading">
+        <header class="chapter-head">
+          <p class="chapter-no" aria-hidden="true">03</p>
+          <h2 id="pricing-heading">Pricing</h2>
+          <p class="chapter-note">Text to schedule</p>
+        </header>
+        <div class="chapter-body">
           <ul class="price-list" role="list">
             <li class="price-row">
               <div class="price-name">
@@ -380,9 +360,7 @@
             <li class="price-row">
               <div class="price-name">
                 <h3>Sports Massage</h3>
-                <p>
-                  The standard session &mdash; targeted sports massage for recovery and maintenance.
-                </p>
+                <p>The standard session &mdash; targeted sports massage for recovery and maintenance.</p>
               </div>
               <p class="price-duration">50 min</p>
               <p class="price-amount"><span class="sr-only">Price: </span>$120</p>
@@ -398,10 +376,7 @@
             <li class="price-row price-row-feature">
               <div class="price-name">
                 <h3>Bodywork+</h3>
-                <p>
-                  Exercise form critique combined with sports massage &mdash; fix the pattern, not
-                  just the pain.
-                </p>
+                <p>Exercise form critique combined with sports massage &mdash; fix the pattern, not just the pain.</p>
               </div>
               <p class="price-duration">50 min</p>
               <p class="price-amount"><span class="sr-only">Price: </span>$100</p>
@@ -419,22 +394,20 @@
             Packages: 7% off a 5-pack &middot; 10% off a 10-pack. On-site &amp; event work available
             &mdash; $100 out-of-office service fee.
           </p>
-          <p class="section-cta">
-            <a class="link-cta" href="sms:+17068428055"
-              >Text (706)&nbsp;842-8055 to schedule <span aria-hidden="true">&rarr;</span></a
-            >
+          <p class="chapter-cta">
+            <a class="btn btn-primary" href="sms:+17068428055">Text (706)&nbsp;842-8055 to schedule</a>
           </p>
         </div>
       </section>
 
       <!-- 04 · The therapists -->
-      <section class="section" id="team" aria-labelledby="team-heading">
-        <div class="container">
-          <header class="section-head">
-            <span class="section-no" aria-hidden="true">04</span>
-            <h2 id="team-heading">The therapists</h2>
-            <p class="section-note">Who's on the table side</p>
-          </header>
+      <section class="chapter" id="team" aria-labelledby="team-heading">
+        <header class="chapter-head">
+          <p class="chapter-no" aria-hidden="true">04</p>
+          <h2 id="team-heading">The therapists</h2>
+          <p class="chapter-note">Who's on the table side</p>
+        </header>
+        <div class="chapter-body">
           <ul class="team-rows" role="list">
             <li class="team-row">
               <picture>
@@ -508,13 +481,13 @@
       </section>
 
       <!-- 05 · Word of mouth -->
-      <section class="section" id="reviews" aria-labelledby="reviews-heading">
-        <div class="container">
-          <header class="section-head">
-            <span class="section-no" aria-hidden="true">05</span>
-            <h2 id="reviews-heading">Word of mouth</h2>
-            <p class="section-note">5.0 on Google &middot; 33 reviews</p>
-          </header>
+      <section class="chapter" id="reviews" aria-labelledby="reviews-heading">
+        <header class="chapter-head">
+          <p class="chapter-no" aria-hidden="true">05</p>
+          <h2 id="reviews-heading">Word of mouth</h2>
+          <p class="chapter-note">5.0 on Google &middot; 33 reviews</p>
+        </header>
+        <div class="chapter-body">
           <ul class="quote-list" role="list">
             <li class="quote">
               <p class="quote-stars">
@@ -532,8 +505,7 @@
                 <a
                   href="https://www.facebook.com/p/The-Athletic-Standard-61563394255000/"
                   rel="noopener"
-                  >Katie Oglesby Hardy &mdash; Facebook <span aria-hidden="true">&rarr;</span
-                  ><span class="sr-only"> (opens Facebook)</span></a
+                  >Katie Oglesby Hardy &mdash; Facebook<span class="sr-only"> (opens Facebook)</span></a
                 >
               </p>
             </li>
@@ -549,8 +521,7 @@
                 <a
                   href="https://www.facebook.com/p/The-Athletic-Standard-61563394255000/"
                   rel="noopener"
-                  >Ilan Bental &mdash; Facebook <span aria-hidden="true">&rarr;</span
-                  ><span class="sr-only"> (opens Facebook)</span></a
+                  >Ilan Bental &mdash; Facebook<span class="sr-only"> (opens Facebook)</span></a
                 >
               </p>
             </li>
@@ -570,8 +541,7 @@
                 <a
                   href="https://www.google.com/maps/search/?api=1&amp;query=The+Athletic+Standard+211+Hudson+Trace+Suite+C+Augusta+GA+30907"
                   rel="noopener"
-                  >Michael Holder &mdash; Google <span aria-hidden="true">&rarr;</span
-                  ><span class="sr-only"> (opens Google Maps)</span></a
+                  >Michael Holder &mdash; Google<span class="sr-only"> (opens Google Maps)</span></a
                 >
               </p>
             </li>
@@ -591,8 +561,7 @@
                 <a
                   href="https://www.google.com/maps/search/?api=1&amp;query=The+Athletic+Standard+211+Hudson+Trace+Suite+C+Augusta+GA+30907"
                   rel="noopener"
-                  >Laura Shinn &mdash; Google <span aria-hidden="true">&rarr;</span
-                  ><span class="sr-only"> (opens Google Maps)</span></a
+                  >Laura Shinn &mdash; Google<span class="sr-only"> (opens Google Maps)</span></a
                 >
               </p>
             </li>
@@ -601,13 +570,13 @@
       </section>
 
       <!-- 06 · The studio -->
-      <section class="section" id="studio" aria-labelledby="studio-heading">
-        <div class="container">
-          <header class="section-head">
-            <span class="section-no" aria-hidden="true">06</span>
-            <h2 id="studio-heading">The studio</h2>
-            <p class="section-note">211 Hudson Trace, Augusta</p>
-          </header>
+      <section class="chapter" id="studio" aria-labelledby="studio-heading">
+        <header class="chapter-head">
+          <p class="chapter-no" aria-hidden="true">06</p>
+          <h2 id="studio-heading">The studio</h2>
+          <p class="chapter-note">211 Hudson Trace, Augusta</p>
+        </header>
+        <div class="chapter-body">
           <div class="studio-grid">
             <div class="studio-info">
               <address>
@@ -631,11 +600,10 @@
               <p class="studio-note">By appointment only.</p>
               <p>
                 <a
-                  class="link-cta link-cta-quiet"
+                  class="btn"
                   href="https://www.google.com/maps/search/?api=1&amp;query=The+Athletic+Standard+211+Hudson+Trace+Suite+C+Augusta+GA+30907"
                   rel="noopener"
-                  >Get directions <span aria-hidden="true">&rarr;</span
-                  ><span class="sr-only"> (opens Google Maps)</span></a
+                  >Get directions<span class="sr-only"> (opens Google Maps)</span></a
                 >
               </p>
             </div>
@@ -655,14 +623,14 @@
       </section>
 
       <!-- 07 · Yoga -->
-      <section class="section" id="yoga" aria-labelledby="yoga-heading">
-        <div class="container">
-          <header class="section-head">
-            <span class="section-no" aria-hidden="true">07</span>
-            <h2 id="yoga-heading">Yoga in the space</h2>
-            <p class="section-note">Book direct with the instructors</p>
-          </header>
-          <p class="yoga-lead">
+      <section class="chapter" id="yoga" aria-labelledby="yoga-heading">
+        <header class="chapter-head">
+          <p class="chapter-no" aria-hidden="true">07</p>
+          <h2 id="yoga-heading">Yoga in the space</h2>
+          <p class="chapter-note">Book direct with the instructors</p>
+        </header>
+        <div class="chapter-body">
+          <p class="lead">
             Contracted instructors teach Sports Myofascial yoga and other styles in our studio
             &mdash; trained for all ranges of skill and experience, from first session to
             competition prep.
@@ -671,24 +639,16 @@
             <li>
               <h3>New Earth Somatic Yoga</h3>
               <p>
-                <a
-                  class="link-cta link-cta-quiet"
-                  href="https://newearthsomaticyoga.book.kiwilaunch.com"
-                  rel="noopener"
-                  >Book a session <span aria-hidden="true">&rarr;</span
-                  ><span class="sr-only"> (opens booking site)</span></a
+                <a class="btn" href="https://newearthsomaticyoga.book.kiwilaunch.com" rel="noopener"
+                  >Book a session<span class="sr-only"> (opens booking site)</span></a
                 >
               </p>
             </li>
             <li>
               <h3>Yogahouser</h3>
               <p>
-                <a
-                  class="link-cta link-cta-quiet"
-                  href="https://appt.link/yoga-by-yogahouser"
-                  rel="noopener"
-                  >Book a session <span aria-hidden="true">&rarr;</span
-                  ><span class="sr-only"> (opens booking site)</span></a
+                <a class="btn" href="https://appt.link/yoga-by-yogahouser" rel="noopener"
+                  >Book a session<span class="sr-only"> (opens booking site)</span></a
                 >
               </p>
             </li>
@@ -697,13 +657,13 @@
       </section>
 
       <!-- 08 · Shop -->
-      <section class="section" id="shop" aria-labelledby="shop-heading">
-        <div class="container">
-          <header class="section-head">
-            <span class="section-no" aria-hidden="true">08</span>
-            <h2 id="shop-heading">Wear the Standard</h2>
-            <p class="section-note">Shipped from our official store</p>
-          </header>
+      <section class="chapter" id="shop" aria-labelledby="shop-heading">
+        <header class="chapter-head">
+          <p class="chapter-no" aria-hidden="true">08</p>
+          <h2 id="shop-heading">Wear the Standard</h2>
+          <p class="chapter-note">Shipped from our official store</p>
+        </header>
+        <div class="chapter-body">
           <ul class="shop-grid" role="list">
             <li class="shop-item">
               <a
@@ -772,10 +732,7 @@
               </a>
             </li>
             <li class="shop-item">
-              <a
-                href="https://vgy31b-pu.myshopify.com/products/all-over-print-gym-bag"
-                rel="noopener"
-              >
+              <a href="https://vgy31b-pu.myshopify.com/products/all-over-print-gym-bag" rel="noopener">
                 <span class="shop-media">
                   <picture>
                     <source srcset="img/shop-gymbag.webp" type="image/webp" />
@@ -796,10 +753,9 @@
               </a>
             </li>
           </ul>
-          <p class="section-cta">
-            <a class="link-cta link-cta-quiet" href="https://vgy31b-pu.myshopify.com" rel="noopener"
-              >Shop all apparel <span aria-hidden="true">&rarr;</span
-              ><span class="sr-only"> (opens the apparel store)</span></a
+          <p class="chapter-cta">
+            <a class="btn" href="https://vgy31b-pu.myshopify.com" rel="noopener"
+              >Shop all apparel<span class="sr-only"> (opens the apparel store)</span></a
             >
           </p>
         </div>
@@ -807,29 +763,23 @@
 
       <!-- Book -->
       <section class="book" id="book" aria-labelledby="book-heading">
-        <div class="container">
-          <p class="book-kicker">Ready when you are</p>
+        <div class="book-inner">
+          <p class="book-kicker"><span class="accent-line" aria-hidden="true"></span>Ready when you are</p>
           <h2 id="book-heading"><a href="sms:+17068428055">Text (706)&nbsp;842-8055</a></h2>
           <p class="book-note">
-            Tell us your sport, your goal, and when you'd like to come in.<br />Or email
-            <a href="mailto:TheAthleticStandard@gmail.com">TheAthleticStandard@gmail.com</a>
+            Tell us your sport, your goal, and when you'd like to come in.<br />
+            Or email <a href="mailto:TheAthleticStandard@gmail.com">TheAthleticStandard@gmail.com</a>
           </p>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-grid">
+      <div class="footer-grid">
         <div class="footer-brand">
           <picture>
             <source srcset="img/logo-white.webp" type="image/webp" />
-            <img
-              src="img/logo-white.png"
-              alt="The Athletic Standard"
-              width="240"
-              height="132"
-              loading="lazy"
-            />
+            <img src="img/logo-white.png" alt="The Athletic Standard" width="240" height="132" loading="lazy" />
           </picture>
           <p>
             Sports Massage &amp; Athletic Rehabilitation<br />211 Hudson Trace Suite C, Augusta, GA
@@ -847,16 +797,14 @@
             <a href="https://www.instagram.com/theathleticstandard" rel="noopener">Instagram</a>
           </li>
           <li>
-            <a
-              href="https://www.facebook.com/p/The-Athletic-Standard-61563394255000/"
-              rel="noopener"
+            <a href="https://www.facebook.com/p/The-Athletic-Standard-61563394255000/" rel="noopener"
               >Facebook</a
             >
           </li>
           <li><a href="https://vgy31b-pu.myshopify.com" rel="noopener">Apparel</a></li>
         </ul>
       </div>
-      <div class="container footer-legal">
+      <div class="footer-legal">
         <p>&copy; <span id="year">2026</span> The Athletic Standard. All rights reserved.</p>
       </div>
     </footer>
